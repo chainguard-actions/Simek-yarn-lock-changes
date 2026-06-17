@@ -1,0 +1,39 @@
+{
+  "name": "yarn-lock-changes",
+  "version": "0.13.0",
+  "main": "dist/index.js",
+  "repository": "github:Simek/yarn-lock-changes",
+  "author": "Simek <me@simek.dev>",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild src/action.ts --bundle --platform=node --target=node22 --minify --legal-comments=none --outfile=dist/index.js",
+    "lint": "oxlint --type-aware && oxfmt --check",
+    "lint:fix": "oxlint --type-aware --fix && oxfmt",
+    "optimize": "svgo -f ./assets",
+    "test": "node --import tsx --test"
+  },
+  "dependencies": {
+    "@actions/core": "^3.0.0",
+    "@actions/github": "^9.0.0",
+    "js-base64": "^3.7.8",
+    "markdown-table": "^3.0.4",
+    "semver": "^7.7.4"
+  },
+  "devDependencies": {
+    "@types/node": "24.1.0",
+    "@types/semver": "^7.7.1",
+    "@yarnpkg/lockfile": "^1.1.0",
+    "@yarnpkg/parsers": "^3.0.3",
+    "esbuild": "^0.27.3",
+    "oxfmt": "^0.28.0",
+    "oxlint": "^1.43.0",
+    "oxlint-tsgolint": "^0.11.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "volta": {
+    "node": "24.13.0",
+    "yarn": "1.22.22"
+  },
+  "packageManager": "yarn@1.22.22"
+}

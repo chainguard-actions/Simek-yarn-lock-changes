@@ -1,0 +1,40 @@
+name: '🧪 Run Tests'
+on: [pull_request]
+
+permissions: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    strategy:
+      matrix:
+        node: [18, 20, 22]
+    name: Testing on Node ${{ matrix.node }}
+    steps:
+    - name: '🚚 Checkout'
+      uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+    - name: '🔧 Setup Node'
+      uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      with:
+        node-version: ${{ matrix.node }}
+    - name: '📦️ Install dependencies'
+      run: yarn
+    - name: '🧪 Run Unit tests'
+      run: yarn test
+    - name: '⚗️ Run CI Classic test'
+      uses: ./
+      with:
+        path: tests/ci/classic/yarn.lock
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: '⚗️ Run CI Berry v2 test'
+      uses: ./
+      with:
+        path: tests/ci/berry-v2/yarn.lock
+        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: '⚗️ Run CI Berry v3 test'
+      uses: ./
+      with:
+        path: tests/ci/berry-v3/yarn.lock
+        token: ${{ secrets.GITHUB_TOKEN }}

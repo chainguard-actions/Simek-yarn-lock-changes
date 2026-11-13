@@ -4,8 +4,13 @@
   "version": "v0.14.1",
   "commit_sha": "59f47ee499424d2c2437c5aebf863b5c6d50a5bc",
   "url": "https://github.com/Simek/yarn-lock-changes",
-  "policy_sha": "d636be7e43ef829af6e853da6b3c7566db9f72fe",
+  "policy_sha": "374911c4be584df24e6da57af2d990570ef0f859",
   "test_policy_sha": "843adf9e4b8f85d0c08b27b9d0b09dd094b54702",
   "test_agent_version": "2",
-  "harden_agent_version": "2"
+  "harden_agent_version": "2",
+  "dist_artifact": {
+    "gcs_uri": "gs://patch-actions-node-artifacts/dist-artifacts/Simek/yarn-lock-changes/v0.14.1/sha256-598d67bb807d2e88db9aae85a951ed0575f6d12dac0b0dc2c89bec35cdd3ee1a.tar.gz",
+    "sha256": "598d67bb807d2e88db9aae85a951ed0575f6d12dac0b0dc2c89bec35cdd3ee1a",
+    "size_bytes": 171121
+  }
 }
